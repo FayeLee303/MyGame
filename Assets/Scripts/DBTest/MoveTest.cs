@@ -38,47 +38,64 @@ public class MoveTest : MonoBehaviour {
         //设置当前动画组件的支架中的位置的显示由之前定义的一个正常动画组控制，这是一个String值
         armatureComponent.armature.GetSlot("effects_1").displayController = NORMAL_ANIMATION_GROUP;
         armatureComponent.armature.GetSlot("effects_2").displayController = NORMAL_ANIMATION_GROUP;
-
+        armatureComponent.flipX = false;
+        armatureComponent.animation.Play("idle", -1);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (armatureComponent.animation.isPlaying) {
-            Debug.Log("111111111111");
-        }
-        if (Input.GetKey(left))
-        {
-            controller.Move(new Vector3(-walkspeed, 0, 0) * Time.deltaTime);
-            //armatureComponent.animation.Play("walk",1);
-            armatureComponent.animation.FadeIn("walk", -1f, 1, 0, NORMAL_ANIMATION_GROUP);
-            armatureComponent.flipX = true;
-        }
-        else if (Input.GetKey(right))
-        {
-            controller.Move(new Vector3(walkspeed, 0, 0) * Time.deltaTime);
-            //armatureComponent.animation.Play("walk",1);
-            armatureComponent.animation.FadeIn("walk", -1f, 1, 0, NORMAL_ANIMATION_GROUP);
-            armatureComponent.flipX = true;
-        }
-        else if (Input.GetKey(up))
-        {
-            controller.Move(new Vector3(0, 0, walkspeed) * Time.deltaTime);
-            //armatureComponent.animation.Play("walk",1);
-            armatureComponent.animation.FadeIn("walk", -1f, 1, 0, NORMAL_ANIMATION_GROUP);
-            armatureComponent.flipX = true;
-        }
-        else if (Input.GetKey(down))
-        {
-            controller.Move(new Vector3(0, 0, -walkspeed) * Time.deltaTime);
-            //armatureComponent.animation.Play("walk",1);
-            armatureComponent.animation.FadeIn("walk", -1f, 1, 0, NORMAL_ANIMATION_GROUP);
-            armatureComponent.flipX = true;
-        }
-        else {
-            //armatureComponent.animation.FadeIn("idle", -1f, 1, 0, NORMAL_ANIMATION_GROUP);
-        }
 
-
+        bool moveKeyPressed = Input.GetKeyDown(left) || Input.GetKeyDown(right) || Input.GetKeyDown(up) || Input.GetKeyDown(down);
+        bool moveKeyUp = Input.GetKeyUp(left) || Input.GetKeyUp(right) || Input.GetKeyUp(up) || Input.GetKeyUp(down);
+        bool moving = Input.GetKey(left) || Input.GetKey(right) || Input.GetKey(up) || Input.GetKey(down);
+        // if any move key was pressed down this frame, start walk animation
+        if (moveKeyPressed)
+        {
+            armatureComponent.animation.Play("walk", -1);
+           
+        }
+        // else if not moving at all and a movement key was released
+        else if (!moving && moveKeyUp)
+        {
+            armatureComponent.animation.Play("idle", -1);
+        }
+        if (moving) {
+            if (Input.GetKey(left))
+            {
+                MoveCtrl("left");
+                armatureComponent.flipX = true;
+            }
+            else if (Input.GetKey(right))
+            {
+                MoveCtrl("right");
+            }
+            else if (Input.GetKey(up))
+            {
+                MoveCtrl("up");
+            }
+            else if (Input.GetKey(down))
+            {
+                MoveCtrl("down");
+            }
+        }
 
     }
+
+    void MoveCtrl(string dir) {
+        switch(dir){
+            case "left":
+                controller.Move(new Vector3(-walkspeed, 0, 0) * Time.deltaTime);
+                break;
+            case "right":
+                controller.Move(new Vector3(walkspeed, 0, 0) * Time.deltaTime);
+                break;
+            case "up":
+                controller.Move(new Vector3(0, 0, walkspeed) * Time.deltaTime);
+                break;
+            case "down":
+                controller.Move(new Vector3(0, 0, -walkspeed) * Time.deltaTime);
+                break;
+        }
+    }
+
 }
