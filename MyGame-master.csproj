@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\Scripts\3rdParty\MiniJSON.cs" />
+    <Compile Include="Assets\Scripts\DBTest\CameraCtrl.cs" />
     <Compile Include="Assets\Scripts\DBTest\DragonBonesTest.cs" />
     <Compile Include="Assets\Scripts\DBTest\MoveTest.cs" />
     <Compile Include="Assets\Scripts\DoTweenTest\ShakeTest.cs" />

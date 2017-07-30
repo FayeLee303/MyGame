@@ -11,9 +11,9 @@ public class MoveTest : MonoBehaviour {
     private UnityArmatureComponent armatureComponent = null;
     public GameObject role;
 
-    private const string NORMAL_ANIMATION_GROUP = "normal";
-    private const string AIM_ANIMATION_GROUP = "aim";
-    private const string ATTACK_ANIMATION_GROUP = "attack";
+    //private const string NORMAL_ANIMATION_GROUP = "normal";
+    //private const string AIM_ANIMATION_GROUP = "aim";
+    //private const string ATTACK_ANIMATION_GROUP = "attack";
 
     //键位
     public KeyCode left = KeyCode.A;
@@ -22,9 +22,22 @@ public class MoveTest : MonoBehaviour {
     public KeyCode down = KeyCode.S;
     public KeyCode DirToLeft = KeyCode.Q;
     public KeyCode DirToRight = KeyCode.E;
+    public KeyCode changeWeapon = KeyCode.Space;
 
     public float walkspeed;
     public bool faceDir;//false是右边，true是左边
+
+    //private static readonly string[] WEAPON_LEFT_LIST = { "weapon_1502b_l", "weapon_1005", "weapon_1005b", "weapon_1005c", "weapon_1005d" };
+    //private static readonly string[] WEAPON_RIGHT_LIST = { "weapon_1502b_r", "weapon_1005", "weapon_1005b", "weapon_1005c", "weapon_1005d", "weapon_1005e" };
+
+    public int _weaponLeftIndex;//武器编号
+    private Armature _weaponLeft = null;//武器挂件
+
+    private string[] _replaceDisplays = {
+        // Replace mesh display.
+        "itemA", "itemB"
+    };
+
 
     // Use this for initialization
     void Start () {
@@ -37,7 +50,13 @@ public class MoveTest : MonoBehaviour {
         walkspeed = 3f;
         faceDir = false;
         armatureComponent.armature.flipX = false;
-        armatureComponent.animation.Play("idle", -1);
+        armatureComponent.animation.Play("stand", -1);
+        _weaponLeftIndex = 0;
+
+        // 初始化武器挂件
+        //_weaponLeft = armatureComponent.armature.GetSlot("weapon_l").childArmature;
+
+
     }
 	
 	// Update is called once per frame
@@ -55,18 +74,20 @@ public class MoveTest : MonoBehaviour {
         // else if not moving at all and a movement key was released
         else if (!moving && moveKeyUp)
         {
-            armatureComponent.animation.Play("idle", -1);
+            armatureComponent.animation.Play("stand", -1);
         }
         if (moving) {
             if (Input.GetKey(left))
             {
                 MoveCtrl("left");
-                faceDir = true;
+                faceDir = false;
+                armatureComponent.armature.flipX = false;
             }
             else if (Input.GetKey(right))
             {
                 MoveCtrl("right");
-                faceDir = false;
+                faceDir = true;
+                armatureComponent.armature.flipX = true;
             }
             else if (Input.GetKey(up))
             {
@@ -77,14 +98,30 @@ public class MoveTest : MonoBehaviour {
                 MoveCtrl("down");
             }
         }
-        if (faceDir)
-        {
-            armatureComponent.armature.flipX = true;
+
+        if (Input.GetKeyDown(changeWeapon)) {
+            ChangeWeapon();
         }
-        else {
-            armatureComponent.armature.flipX = false;
-        }
-    
+    }
+
+    void ChangeWeapon() {
+        //_weaponLeftIndex++;
+        //if (_weaponLeftIndex >= WEAPON_LEFT_LIST.Length)
+        //{
+        //    _weaponLeftIndex = 0;
+        //}
+
+        //var weaponName = WEAPON_LEFT_LIST[_weaponLeftIndex];
+        //_weaponLeft = UnityFactory.factory.BuildArmature(weaponName);
+        //armatureComponent.armature.GetSlot("weapon_l").childArmature = _weaponLeft;
+        UnityFactory.factory.ReplaceSlotDisplay(
+                       "Ubbie",
+                       "items",
+                       "itemB",
+                       "eye_hmj",
+                       armatureComponent.armature.GetSlot("item")
+                   );
+        
     }
 
     void MoveCtrl(string dir) {
@@ -104,4 +141,5 @@ public class MoveTest : MonoBehaviour {
         }
     }
 
+    
 }
