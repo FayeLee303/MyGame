@@ -63,7 +63,7 @@ public class MoveTest : MonoBehaviour {
             if (Input.GetKey(left))
             {
                 MoveCtrl("left");
-                armatureComponent.flipX = true;
+                armatureComponent.armature.flipX = true;
             }
             else if (Input.GetKey(right))
             {
