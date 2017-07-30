@@ -24,6 +24,7 @@ public class MoveTest : MonoBehaviour {
     public KeyCode DirToRight = KeyCode.E;
 
     public float walkspeed;
+    public bool faceDir;//false是右边，true是左边
 
     // Use this for initialization
     void Start () {
@@ -34,11 +35,8 @@ public class MoveTest : MonoBehaviour {
             armatureComponent = role.GetComponent<UnityArmatureComponent>();
         }
         walkspeed = 3f;
-
-        //设置当前动画组件的支架中的位置的显示由之前定义的一个正常动画组控制，这是一个String值
-        armatureComponent.armature.GetSlot("effects_1").displayController = NORMAL_ANIMATION_GROUP;
-        armatureComponent.armature.GetSlot("effects_2").displayController = NORMAL_ANIMATION_GROUP;
-        armatureComponent.flipX = false;
+        faceDir = false;
+        armatureComponent.armature.flipX = false;
         armatureComponent.animation.Play("idle", -1);
     }
 	
@@ -63,11 +61,12 @@ public class MoveTest : MonoBehaviour {
             if (Input.GetKey(left))
             {
                 MoveCtrl("left");
-                armatureComponent.armature.flipX = true;
+                faceDir = true;
             }
             else if (Input.GetKey(right))
             {
                 MoveCtrl("right");
+                faceDir = false;
             }
             else if (Input.GetKey(up))
             {
@@ -78,7 +77,14 @@ public class MoveTest : MonoBehaviour {
                 MoveCtrl("down");
             }
         }
-
+        if (faceDir)
+        {
+            armatureComponent.armature.flipX = true;
+        }
+        else {
+            armatureComponent.armature.flipX = false;
+        }
+    
     }
 
     void MoveCtrl(string dir) {
