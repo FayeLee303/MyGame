@@ -115,13 +115,15 @@ public class MoveTest : MonoBehaviour {
         //_weaponLeft = UnityFactory.factory.BuildArmature(weaponName);
         //armatureComponent.armature.GetSlot("weapon_l").childArmature = _weaponLeft;
         UnityFactory.factory.ReplaceSlotDisplay(
-                       "Ubbie",
-                       "items",
-                       "itemB",
-                       "eye_hmj",
-                       armatureComponent.armature.GetSlot("item")
+                       "Ubbie_ske",//工程名字
+                       "items",//骨架名字
+                       "itemB",//要替换插槽的插槽名字或涂层名字
+                       "_0002_乌云哥哥的大腿",//要替换的图片名字
+                       armatureComponent.armature.GetSlot("item")//被替换的插槽实例
                    );
-        
+
+
+
     }
 
     void MoveCtrl(string dir) {
