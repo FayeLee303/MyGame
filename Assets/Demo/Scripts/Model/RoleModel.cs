@@ -6,8 +6,8 @@ public class RoleModel {
 
     public int Hp { get; set; }//生命值
     public int Mp { get; set; }//法力值
-    public int MixHp { get; set; }//生命值上限
-    public int MixMp { get; set; }//Mp上限
+    public int MaxHp { get; set; }//生命值上限
+    public int MaxMp { get; set; }//Mp上限
     public int Atk { get; set; }//攻击力
     public int Def { get; set; }//防御力
     public int MoveSpeed { get; set; }//移动速度
@@ -19,6 +19,42 @@ public class RoleModel {
     public bool IsWeaponForbidden { get; set; }//是否禁用武器
     public bool IsItemForbodden { get; set; }//是否禁用道具
     public int AnimationId { get; set; }//角色动画编号
+    /// <summary>
+    /// 构造方法
+    /// </summary>
+    /// <param name="hp"></param>
+    /// <param name="mp"></param>
+    /// <param name="maxhp"></param>
+    /// <param name="maxmp"></param>
+    /// <param name="atk"></param>
+    /// <param name="def"></param>
+    /// <param name="movespeed"></param>
+    /// <param name="atkspeed"></param>
+    /// <param name="hprecoverrate"></param>
+    /// <param name="mprecoverrate"></param>
+    /// <param name="weaponList"></param>
+    /// <param name="itemList"></param>
+    /// <param name="isweaponforbidden"></param>
+    /// <param name="isitemforbidden"></param>
+    /// <param name="aniid"></param>
+    public RoleModel(int hp,int mp,int maxhp,int maxmp,int atk,int def,int movespeed,int atkspeed,int hprecoverrate,int mprecoverrate,List<WeaponModel> weaponList,List<ItemModel> itemList,bool isweaponforbidden,bool isitemforbidden,int aniid)
+    {
+        this.Hp = hp;
+        this.Mp = mp;
+        this.MaxHp = maxhp;
+        this.MaxMp = maxmp;
+        this.Atk = atk;
+        this.Def = def;
+        this.MoveSpeed = movespeed;
+        this.AtkSpeed = atkspeed;
+        this.HpRecoveryRate = hprecoverrate;
+        this.MpRecoveryRate = mprecoverrate;
+        this.Weapon = weaponList;
+        this.Item = itemList;
+        this.IsWeaponForbidden = isweaponforbidden;
+        this.IsItemForbodden = isitemforbidden;
+        this.AnimationId = aniid;
+    }
 
     public virtual void PlayAnimation(int animationId)
     {

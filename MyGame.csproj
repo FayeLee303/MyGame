@@ -76,23 +76,17 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
+    <Reference Include="LitJson">
+      <HintPath>Assets\LJR\Plugins\LitJson.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween46.dll</HintPath>
@@ -100,17 +94,26 @@
     <Reference Include="DOTween50">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween43">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween43.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +126,7 @@
     <Compile Include="Assets\Demo\Scripts\Command\StartCommand.cs" />
     <Compile Include="Assets\Demo\Scripts\Demo_MVCSContext.cs" />
     <Compile Include="Assets\Demo\Scripts\Demo_RootContextView.cs" />
+    <Compile Include="Assets\Demo\Scripts\Manager\InventoryManager.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\BuffModel.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\ItemModel.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\RoleModel.cs" />
@@ -248,6 +252,14 @@
     <Compile Include="Assets\InControl\Source\XInput\XInputDeviceManager.cs" />
     <Compile Include="Assets\InControl\Source\XInput\XInputDotNetPure\GamePad.cs" />
     <Compile Include="Assets\InControl\Source\XInput\XInputDotNetPure\Utils.cs" />
+    <Compile Include="Assets\LJR\Scripts\Common\Http.cs" />
+    <Compile Include="Assets\LJR\Scripts\Common\MethodButtonAttribute.cs" />
+    <Compile Include="Assets\LJR\Scripts\Common\Request.cs" />
+    <Compile Include="Assets\LJR\Scripts\Common\Responce.cs" />
+    <Compile Include="Assets\LJR\Scripts\Common\Setting.cs" />
+    <Compile Include="Assets\LJR\Scripts\Http\RequestDemo1.cs" />
+    <Compile Include="Assets\LJR\Scripts\Http\RequestDemo2.cs" />
+    <Compile Include="Assets\LJR\Scripts\Http\RequestDemo3.cs" />
     <Compile Include="Assets\StrangeIoC\scripts\strange\ReadMe.cs" />
     <Compile Include="Assets\StrangeIoC\scripts\strange\extensions\command\api\CommandExceptionType.cs" />
     <Compile Include="Assets\StrangeIoC\scripts\strange\extensions\command\api\CommandKeys.cs" />
@@ -363,6 +375,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\InControl\README\README.txt" />
+    <None Include="Assets\LJR\Editor\dotnet2\NPOI.OOXML.XML" />
+    <None Include="Assets\LJR\Editor\dotnet2\NPOI.OpenXml4Net.XML" />
+    <None Include="Assets\LJR\Editor\dotnet2\NPOI.XML" />
+    <None Include="Assets\LJR\readme_en.txt" />
+    <None Include="Assets\LJR\readme_jp.txt" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween46.xml" />

@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PLugIN\DragonBones\DragonBones\animation\Animation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Localization\ItemJson.Json">
     <Files>
-      <File FileName="Assets\PLugIN\DragonBones\DragonBones\animation\Animation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Localization\ItemJson.Json" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
