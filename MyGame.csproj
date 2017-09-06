@@ -127,10 +127,13 @@
     <Compile Include="Assets\Demo\Scripts\Demo_MVCSContext.cs" />
     <Compile Include="Assets\Demo\Scripts\Demo_RootContextView.cs" />
     <Compile Include="Assets\Demo\Scripts\Manager\InventoryManager.cs" />
+    <Compile Include="Assets\Demo\Scripts\Manager\UIPanelManager.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\BuffModel.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\ItemModel.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\RoleModel.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\SkillModel.cs" />
+    <Compile Include="Assets\Demo\Scripts\Model\UIPanelInfo.cs" />
+    <Compile Include="Assets\Demo\Scripts\Model\UIPanelType.cs" />
     <Compile Include="Assets\Demo\Scripts\Model\WeaponModel.cs" />
     <Compile Include="Assets\Demo\Scripts\Test\DBTest\CameraCtrl.cs" />
     <Compile Include="Assets\Demo\Scripts\Test\DBTest\DragonBonesTest.cs" />

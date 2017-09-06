@@ -10,5 +10,7 @@ public class StartCommand : Command {
     public override void Execute()
     {
         Debug.Log("StartCommand Execute");
+        //UIPanelManager.Instance.Test();
+        //InventoryManager.Instance();
     }
 }
