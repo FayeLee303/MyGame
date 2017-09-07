@@ -18,12 +18,15 @@ public class UIPanelManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = GameObject.Find("UIPanelManager").GetComponent<UIPanelManager>();
-                //_instance = new UIPanelManager();//相当于调用下面的私有构造方法
+                //_instance = GameObject.Find("UIPanelManager").GetComponent<UIPanelManager>();
+                _instance = new UIPanelManager();//相当于调用下面的私有构造方法
             }
             return _instance;
         }
     }
+
+    //用字典储存所有面板prefab的路径
+    private Dictionary<UIPanelType, string> panelPathDic;
 
     //私有的构造方法
     private UIPanelManager ()
@@ -31,14 +34,12 @@ public class UIPanelManager : MonoBehaviour
         //ParseUIPanelTypeJson();
     }
 
-    private void Start()
-    {
+    public void Init()
+    { 
         ParseUIPanelTypeJson();
-        Test();
     }
 
-    //用字典储存所有面板prefab的路径
-    private Dictionary<UIPanelType, string> panelPathDic;
+    
     //解析Json文件
     private void ParseUIPanelTypeJson()
     {
@@ -52,21 +53,18 @@ public class UIPanelManager : MonoBehaviour
             foreach (UIPanelInfo info in panelInfoList)
             {
                 //存到字典里
-                panelPathDic.Add(info.PanelType,info.path);
+                panelPathDic.Add(info.PanelType, info.path);
             }
         }
         else
         {
             Debug.Log("读取文件失败");
         }
-    }
 
-    public void Test()
-    {
         string path;
-        panelPathDic.TryGetValue(UIPanelType.ItemPanel,out path);
+        panelPathDic.TryGetValue(UIPanelType.ItemPanel, out path);
         Debug.Log(path);
-        Debug.Log("555555");
+        //Debug.Log("555555");
     }
 
 }

@@ -13,8 +13,8 @@ public class InventoryManager : MonoBehaviour {
         {
             if (_instance == null)
             {
-                _instance = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-                //_instance = new InventoryManager();
+                //_instance = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+                _instance = new InventoryManager();
             }
             return _instance;
         }
@@ -28,10 +28,11 @@ public class InventoryManager : MonoBehaviour {
         //ParseItemJson();
     }
 
-    private void Start()
+    public void Init()
     {
         ParseItemJson();
     }
+
     public List<ItemModel> itemList;
     //private string itemJsonPath = Application.dataPath+"Resources/Localization/ItemJson";
     /// <summary>
