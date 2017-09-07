@@ -146,6 +146,12 @@
     <Compile Include="Assets\Demo\Scripts\Test\UI\SkillBtnCtrl.cs" />
     <Compile Include="Assets\Demo\Scripts\View\PlayerMediator.cs" />
     <Compile Include="Assets\Demo\Scripts\View\PlayerView.cs" />
+    <Compile Include="Assets\Demo\Scripts\View\UI\BasePanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\View\UI\ItemPanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\View\UI\NormalMenuPanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\View\UI\OptionPanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\View\UI\RolePanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\View\UI\WeaponPanel.cs" />
     <Compile Include="Assets\InControl\Examples\Basic\CubeController.cs" />
     <Compile Include="Assets\InControl\Examples\CustomProfile\CubeController.cs" />
     <Compile Include="Assets\InControl\Examples\CustomProfile\KeyboardAndMouseProfile.cs" />
