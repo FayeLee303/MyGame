@@ -10,7 +10,9 @@ public class StartCommand : Command {
     public override void Execute()
     {
         Debug.Log("StartCommand Execute");
-        UIPanelManager.Instance.Init();
+        
         InventoryManager.Instance.Init();
+        UIPanelManager.Instance.Init();
+        UIPanelManager.Instance.PushPanel(UIPanelType.MainMenuPanel);
     }
 }

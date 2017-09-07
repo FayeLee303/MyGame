@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class NormalMenuPanel : BasePanel {
 
-	
+    public void OnPushPanel(string panelTypeString)
+    {
+        //转成枚举类型
+        UIPanelType panelType = (UIPanelType)System.Enum.Parse(typeof(UIPanelType), panelTypeString);
+        UIPanelManager.Instance.PushPanel(panelType);
+    }
+
 }

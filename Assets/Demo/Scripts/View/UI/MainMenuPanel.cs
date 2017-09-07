@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OptionPanel : BasePanel {
+public class MainMenuPanel : BasePanel {
 
     public void OnPushPanel(string panelTypeString)
     {
