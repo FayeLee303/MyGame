@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using LitJson;
 
-public class InventoryManager : MonoBehaviour {
+public class InventoryManager  {
     //做成单例模式
     private static InventoryManager _instance;
     public static InventoryManager Instance
@@ -25,12 +25,12 @@ public class InventoryManager : MonoBehaviour {
     //私有的构造方法
     private InventoryManager()
     {
-        //ParseItemJson();
+        ParseItemJson();
     }
 
     public void Init()
     {
-        ParseItemJson();
+       //Do Nothing
     }
 
     public List<ItemModel> itemList;
@@ -48,10 +48,10 @@ public class InventoryManager : MonoBehaviour {
             itemList = JsonMapper.ToObject<List<ItemModel>>(itemJsonString);
             //itemList = JsonUtility.FromJson<List<ItemModel>>(itemJsonString);
             if (itemList == null) return;
-            foreach (ItemModel item in itemList)
-            {
-                Debug.Log(item);
-            }
+            //foreach (ItemModel item in itemList)
+            //{
+            //    Debug.Log(item);
+            //}
         }
         else
         {

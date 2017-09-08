@@ -18,5 +18,9 @@
   {
     "PanelType": 4,
     "path": "Prefabs/UI/OptionPanel"
+  },
+  {
+    "PanelType": 5,
+    "path": "Prefabs/UI/MainMenuPanel"
   }
 ]

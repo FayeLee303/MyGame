@@ -7,6 +7,7 @@ public enum UIPanelType {
     WeaponPanel = 1,
     RolePanel = 2,
     NormalMenuPanel = 3,
-    OptionPanel = 4
+    OptionPanel = 4,
+    MainMenuPanel = 5
 	
 }
