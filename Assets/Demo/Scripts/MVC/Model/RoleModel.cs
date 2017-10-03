@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoleModel {
+public class RoleModel :BaseConfig{
 
     public int Hp { get; set; }//生命值
     public int Mp { get; set; }//法力值
@@ -26,49 +26,55 @@ public class RoleModel {
         Up = 0,
         Down = 1,
         Left = 2,
-        Right = 3
+        Right = 3,
+        None = 4
     }
-    /// <summary>
-    /// 构造方法
-    /// </summary>
-    /// <param name="hp"></param>
-    /// <param name="mp"></param>
-    /// <param name="maxhp"></param>
-    /// <param name="maxmp"></param>
-    /// <param name="atk"></param>
-    /// <param name="def"></param>
-    /// <param name="movespeed"></param>
-    /// <param name="atkspeed"></param>
-    /// <param name="hprecoverrate"></param>
-    /// <param name="mprecoverrate"></param>
-    /// <param name="weaponList"></param>
-    /// <param name="itemList"></param>
-    /// <param name="isweaponforbidden"></param>
-    /// <param name="isitemforbidden"></param>
-    /// <param name="aniid"></param>
-    public RoleModel(int hp,int mp,int maxhp,int maxmp,int atk,int def,int movespeed,int atkspeed,int hprecoverrate,int mprecoverrate,List<WeaponModel> weaponList,List<ItemModel> itemList,bool isweaponforbidden,bool isitemforbidden,int aniid,Direction roleDir)
-    {
-        this.Hp = hp;
-        this.Mp = mp;
-        this.MaxHp = maxhp;
-        this.MaxMp = maxmp;
-        this.Atk = atk;
-        this.Def = def;
-        this.MoveSpeed = movespeed;
-        this.AtkSpeed = atkspeed;
-        this.HpRecoveryRate = hprecoverrate;
-        this.MpRecoveryRate = mprecoverrate;
-        this.Weapon = weaponList;
-        this.Item = itemList;
-        this.IsWeaponForbidden = isweaponforbidden;
-        this.IsItemForbodden = isitemforbidden;
-        this.AnimationId = aniid;
-        this.RoleDir = roleDir;
-    }
+    ///// <summary>
+    ///// 构造方法
+    ///// </summary>
+    ///// <param name="hp"></param>
+    ///// <param name="mp"></param>
+    ///// <param name="maxhp"></param>
+    ///// <param name="maxmp"></param>
+    ///// <param name="atk"></param>
+    ///// <param name="def"></param>
+    ///// <param name="movespeed"></param>
+    ///// <param name="atkspeed"></param>
+    ///// <param name="hprecoverrate"></param>
+    ///// <param name="mprecoverrate"></param>
+    ///// <param name="weaponList"></param>
+    ///// <param name="itemList"></param>
+    ///// <param name="isweaponforbidden"></param>
+    ///// <param name="isitemforbidden"></param>
+    ///// <param name="aniid"></param>
+    //public RoleModel(int hp,int mp,int maxhp,int maxmp,int atk,int def,int movespeed,int atkspeed,int hprecoverrate,int mprecoverrate,List<WeaponModel> weaponList,List<ItemModel> itemList,bool isweaponforbidden,bool isitemforbidden,int aniid,Direction roleDir)
+    //{
+    //    this.Hp = hp;
+    //    this.Mp = mp;
+    //    this.MaxHp = maxhp;
+    //    this.MaxMp = maxmp;
+    //    this.Atk = atk;
+    //    this.Def = def;
+    //    this.MoveSpeed = movespeed;
+    //    this.AtkSpeed = atkspeed;
+    //    this.HpRecoveryRate = hprecoverrate;
+    //    this.MpRecoveryRate = mprecoverrate;
+    //    this.Weapon = weaponList;
+    //    this.Item = itemList;
+    //    this.IsWeaponForbidden = isweaponforbidden;
+    //    this.IsItemForbodden = isitemforbidden;
+    //    this.AnimationId = aniid;
+    //    this.RoleDir = roleDir;
+    //}
 
-    public virtual void PlayAnimation(int animationId)
-    {
-        animationId = this.AnimationId;
-        //根据动画Id播放动画
-    }
+    //public RoleModel(Direction dir)
+    //{
+    //    this.RoleDir = dir;
+    //}
+
+    //public virtual void PlayAnimation(int animationId)
+    //{
+    //    animationId = this.AnimationId;
+    //    //根据动画Id播放动画
+    //}
 }

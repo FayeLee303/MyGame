@@ -11,6 +11,7 @@ public class TestView : EventView {
     }
     public void TestDug()
     {
-        dispatcher.Dispatch(ViewEvent.Test);
+        //dispatcher.Dispatch(ViewEvent.Test);
+        //dispatcher.Dispatch(GameConfig.CoreEvent.GAME_START);
     }
 }

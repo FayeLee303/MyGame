@@ -4,20 +4,22 @@ using strange.extensions.command.impl;
 using Sirenix.OdinInspector.Demos;
 using UnityEngine;
 
-public class StartCommand : Command {
+public class StartCommand : EventCommand {
 
     //开始命令，用来做一些初始化工作，框架外的东西也可以在这里Init
     //当这个命令执行时，默认调用Execute方法
     public override void Execute()
     {
+   
         Debug.Log("StartCommand Execute");
         MapGenerator mapGenerator = GameObject.Find("Edge").GetComponent<MapGenerator>();
         ObjectPlacer objGenerator = GameObject.Find("Element").GetComponent<ObjectPlacer>();
+        dispatcher.Dispatch(GameConfig.CoreEvent.GAME_START);
 
         mapGenerator.GenerateMap();
         objGenerator.ClearAndRepositionObjects();
         InventoryManager.Instance.Init();
-        UIPanelManager.Instance.Init();
-        UIPanelManager.Instance.PushPanel(UIPanelType.MainMenuPanel);
+        //UIPanelManager.Instance.Init();
+        //UIPanelManager.Instance.PushPanel(UIPanelType.MainMenuPanel);
     }
 }

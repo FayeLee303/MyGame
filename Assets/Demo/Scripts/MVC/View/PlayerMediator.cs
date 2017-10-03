@@ -5,52 +5,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMediator : Mediator {
+public class PlayerMediator : FightingBaseMediator {
     [Inject]
     public PlayerView playerView { get; set; }
 
     [Inject]
-    public RoleModel player { get; set; }
+    public DataBaseCommon dataBase { get; set; }
+    [Inject]
+    public FightingCommon common { get; set; }
+    [Inject]
+    public User user { get; set; }
 
-    //定义了一个事件派发器，并且设置为全局派发器
-    [Inject(ContextKeys.CONTEXT_DISPATCHER)]
-    public IEventDispatcher dispatcher { get; set; }
 
-    //当所有的属性注入之后运行时就会注册
     public override void OnRegister()
     {
-        playerView.Dispatcher.AddListener(ViewEvent.PlayerTurnDown, PlayerTurnDown);
-        playerView.Dispatcher.AddListener(ViewEvent.PlayerTurnUp, PlayerTurnUp);
-        playerView.Dispatcher.AddListener(ViewEvent.PlayerTurnLeft, PlayerTurnLeft);
-        playerView.Dispatcher.AddListener(ViewEvent.PlayerTurnRight, PlayerTurnRight);
-
-        playerView.PlayerFaccDir(player.RoleDir);
-
+        UpdateListeners(true);
+        //playerView.dispatcher.AddListener(GameConfig.PlayerState.MOVE, playerView.MoveToDirection);
     }
-
     public override void OnRemove()
     {
-        playerView.Dispatcher.RemoveListener(ViewEvent.PlayerTurnDown, PlayerTurnDown);
-        playerView.Dispatcher.RemoveListener(ViewEvent.PlayerTurnUp, PlayerTurnUp);
-        playerView.Dispatcher.RemoveListener(ViewEvent.PlayerTurnLeft, PlayerTurnLeft);
-        playerView.Dispatcher.RemoveListener(ViewEvent.PlayerTurnRight, PlayerTurnRight);
+        UpdateListeners(false);
+    }
+    protected override void UpdateListeners(bool enable)
+    {
+        dispatcher.UpdateListener(enable, GameConfig.CoreEvent.GAME_START, InitData);
+        dispatcher.UpdateListener(enable, GameConfig.PlayerState.MOVE, playerView.MoveToDirection);
+        dispatcher.UpdateListener(enable, GameConfig.CoreEvent.GAME_UPDATE, playerView.GameUpdate);
+        dispatcher.UpdateListener(enable, GameConfig.PropsState.ONPAUSE, OnPause);
+        dispatcher.UpdateListener(enable, GameConfig.PropsState.PAUSE_RELEASE, Pause_Release);
+        base.UpdateListeners(enable);
+    }
+    private void OnPause(IEvent payload)
+    {
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+    }
+    private void Pause_Release(IEvent payload)
+    {
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+    protected override void InitData()
+    {
+        Debug.Log("开始");
+        var config = dataBase.GetConfigByID(user.PlayerId, dataBase.PlayerConfigList);
+        playerView.Init(config);
+        GetComponent<Rigidbody>().isKinematic = false;
+    }
+    protected override void OnGameRestart()
+    {
+        InitData();
+        GetComponent<Rigidbody>().isKinematic = false;
+        base.OnGameRestart();
     }
 
-
-    public void PlayerTurnDown()
+    void Test()
     {
-        player.RoleDir = RoleModel.Direction.Down;
-    }
-    public void PlayerTurnUp()
-    {
-        player.RoleDir = RoleModel.Direction.Up;
-    }
-    public void PlayerTurnLeft()
-    {
-        player.RoleDir = RoleModel.Direction.Left;
-    }
-    public void PlayerTurnRight()
-    {
-        player.RoleDir = RoleModel.Direction.Right;
+        Debug.Log("测试");
     }
 }

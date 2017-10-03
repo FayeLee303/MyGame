@@ -129,6 +129,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Demo\Scripts\Base\CustomAPI.cs" />
+    <Compile Include="Assets\Demo\Scripts\Base\DataBaseCommon.cs" />
+    <Compile Include="Assets\Demo\Scripts\Base\GameConfig.cs" />
+    <Compile Include="Assets\Demo\Scripts\Base\IUnitAPI.cs" />
     <Compile Include="Assets\Demo\Scripts\Extensions\DictionaryExtension.cs" />
     <Compile Include="Assets\Demo\Scripts\Manager\InventoryManager.cs" />
     <Compile Include="Assets\Demo\Scripts\Manager\UIPanelManager.cs" />
@@ -141,21 +145,32 @@
     <Compile Include="Assets\Demo\Scripts\MapGenerate\Square.cs" />
     <Compile Include="Assets\Demo\Scripts\MapGenerate\SquareGrid.cs" />
     <Compile Include="Assets\Demo\Scripts\MapGenerate\Triangle.cs" />
-    <Compile Include="Assets\Demo\Scripts\MVC\Command\ChangeDirCommand.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Command\CommandEvent.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Command\OperationCommand.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Command\StartCommand.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Command\TestCommand.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Demo_MVCSContext.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Demo_RootContextView.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Model\BaseConfig.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\BuffModel.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Model\CustomEventData\CustomEventData.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Model\CustomEventData\CustomOperationEventData.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Model\FightingCommon.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\ItemModel.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Model\PlayerConfig.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\RoleModel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\SkillModel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\UIPanelInfo.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\UIPanelType.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\Model\User.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\Model\WeaponModel.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\FightingBaseMediator.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\FightingBaseView.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\OperationMediator.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\OperationView.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\PlayerMediator.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\PlayerView.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\RoleBaseEventView.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\TestMediator.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\TestView.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\BasePanel.cs" />
@@ -167,7 +182,6 @@
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\WeaponPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\ViewEvent.cs" />
     <Compile Include="Assets\Demo\Scripts\Obj\LookAtCamera.cs" />
-    <Compile Include="Assets\Demo\Scripts\TestView.cs" />
     <Compile Include="Assets\Demo2\Test\DBTest\CameraCtrl.cs" />
     <Compile Include="Assets\Demo2\Test\DBTest\DragonBonesTest.cs" />
     <Compile Include="Assets\Demo2\Test\DBTest\MoveTest.cs" />

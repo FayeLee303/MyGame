@@ -19,7 +19,8 @@ public class TestMediator : EventMediator {
 
     protected void UpdateListenter(bool enable)
     {
-        view.dispatcher.UpdateListener(enable,ViewEvent.Test,TestDebug);
+        //view.dispatcher.UpdateListener(enable,ViewEvent.Test,TestDebug);
+        dispatcher.UpdateListener(enable, GameConfig.CoreEvent.GAME_START, TestDebug);
     }
 
     void TestDebug(IEvent e)

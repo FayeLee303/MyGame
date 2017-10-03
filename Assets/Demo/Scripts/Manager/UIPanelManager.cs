@@ -152,7 +152,7 @@ public class UIPanelManager
         panel.OnEnter();
         //panel.OnResume();
         panelStack.Push(panel);
-        Debug.Log(panelStack.Count);
+        //Debug.Log(panelStack.Count);
     }
 
     /// <summary>
