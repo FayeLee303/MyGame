@@ -8,14 +8,19 @@ public class OperationCommand : EventCommand {
     public override void Execute()
     {
         var cd = evt as CustomOperationEventData;
-        Debug.Log(cd.dir);
+        dispatcher.Dispatch(GameConfig.PlayerState.MOVE, cd);
+
         if (cd.dir == RoleModel.Direction.Up ||
             cd.dir == RoleModel.Direction.Down ||
             cd.dir == RoleModel.Direction.Left ||
-            cd.dir == RoleModel.Direction.Right)
+            cd.dir == RoleModel.Direction.Right ||
+            cd.dir == RoleModel.Direction.Up_Left ||
+            cd.dir == RoleModel.Direction.Up_Right ||
+            cd.dir == RoleModel.Direction.Down_Left ||
+            cd.dir == RoleModel.Direction.Down_Right ||
+            cd.dir == RoleModel.Direction.None)
         {
-            dispatcher.Dispatch(GameConfig.PlayerState.MOVE, cd.dir);
-            Debug.Log("移动");
+            dispatcher.Dispatch(GameConfig.PlayerState.MOVE, cd);
         }
         else if (cd.OperationEventType == GameConfig.OperationEvent.ATTACK)
         {

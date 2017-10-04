@@ -74,7 +74,9 @@ public class GameConfig  {
         TURN_LEFT,
         TURN_RIGHT,
         CLICK_DOWN,
-        CLICK_UP
+        CLICK_UP,
+        KEY_DOWN,
+        KEY_UP
 
     }
 

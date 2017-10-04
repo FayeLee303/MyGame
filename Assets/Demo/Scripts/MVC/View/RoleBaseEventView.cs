@@ -12,6 +12,7 @@ public class RoleBaseEventView : FightingBaseView {
     public RoleModel role { get; set; }
 
     private Rigidbody role_rb;
+    private bool moving;
 
     public virtual void Init(RoleModel Role)
     {
@@ -23,11 +24,13 @@ public class RoleBaseEventView : FightingBaseView {
     }
     public virtual void MoveToDirection(IEvent e)
     {
-        RoleModel.Direction _dir = (RoleModel.Direction)e.data;//强制转换传过来的数据为方向
+        var cd = e as CustomOperationEventData;
+        moving = cd.ismoving;
+        RoleModel.Direction _dir = cd.dir;//强制转换传过来的数据为方向
         if (_dir != null)
         {
             role.RoleDir = _dir;
-           
+            
         }
     }
 
@@ -36,25 +39,63 @@ public class RoleBaseEventView : FightingBaseView {
         if (role == null)
             return;
         //在这里更新速度
-        if (role.RoleDir == RoleModel.Direction.Down)
+        if (moving)
         {
-            //role_rb.velocity = new Vector3(0, 0, -role.MoveSpeed);
-            role_rb.velocity = new Vector3(0, 0, -1);
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
+
+            GetComponent<CharacterController>().SimpleMove(new Vector3(h * 5, 0, v * 5));
+            //GetComponent<CharacterController>().SimpleMove(new Vector3(h * role.MoveSpeed, 0, v * role.MoveSpeed));
+
         }
-        if (role.RoleDir == RoleModel.Direction.Up)
+        if (!moving)
         {
-            //role_rb.velocity = new Vector3(0, 0, role.MoveSpeed);
-            role_rb.velocity = new Vector3(0, 0, 1);
+            GetComponent<CharacterController>().SimpleMove(new Vector3(0, 0, 0));
         }
-        if (role.RoleDir == RoleModel.Direction.Left)
-        {
-            //role_rb.velocity = new Vector3(-role.MoveSpeed, 0, 0);
-            role_rb.velocity = new Vector3(-1, 0, 0);
-        }
-        if (role.RoleDir == RoleModel.Direction.Right)
-        {
-            //role_rb.velocity = new Vector3(role.MoveSpeed, 0, 0);
-            role_rb.velocity = new Vector3(1, 0, 0);
-        }
+        //if (role.RoleDir == RoleModel.Direction.Up)
+        //{
+        //    //role_rb.velocity = new Vector3(0, 0, -role.MoveSpeed);
+        //    role_rb.velocity = new Vector3(0, 0, 3);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Down)
+        //{
+        //    //role_rb.velocity = new Vector3(0, 0, role.MoveSpeed);
+        //    role_rb.velocity = new Vector3(0, 0, -3);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Left)
+        //{
+        //    //role_rb.velocity = new Vector3(-role.MoveSpeed, 0, 0);
+        //    role_rb.velocity = new Vector3(-3, 0, 0);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Right)
+        //{
+        //    //role_rb.velocity = new Vector3(role.MoveSpeed, 0, 0);
+        //    role_rb.velocity = new Vector3(3, 0, 0);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Up_Left)
+        //{
+        //    //role_rb.velocity = new Vector3(-role.MoveSpeed, 0, role.MoveSpeed);
+        //    role_rb.velocity = new Vector3(-3, 0, 3);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Up_Right)
+        //{
+        //    //role_rb.velocity = new Vector3(role.MoveSpeed, 0, role.MoveSpeed);
+        //    role_rb.velocity = new Vector3(3, 0, 3);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Down_Left)
+        //{
+        //    //role_rb.velocity = new Vector3(-role.MoveSpeed, 0, -role.MoveSpeed);
+        //    role_rb.velocity = new Vector3(-3, 0, -3);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.Down_Right)
+        //{
+        //    //role_rb.velocity = new Vector3(role.MoveSpeed, 0, -role.MoveSpeed);
+        //    role_rb.velocity = new Vector3(3, 0, -3);
+        //}
+        //if (role.RoleDir == RoleModel.Direction.None)
+        //{
+        //    //role_rb.velocity = new Vector3(0, 0, 0);
+        //    role_rb.velocity = new Vector3(0, 0, 0);
+        //}
     }
 }

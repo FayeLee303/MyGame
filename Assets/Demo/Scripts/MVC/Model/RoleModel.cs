@@ -23,11 +23,15 @@ public class RoleModel :BaseConfig{
     public Direction RoleDir { get; set; }//角色方向
 
     public enum Direction{
-        Up = 0,
-        Down = 1,
-        Left = 2,
-        Right = 3,
-        None = 4
+        None = 0,
+        Up = 1,
+        Down = 2,
+        Left = 3,
+        Right = 4,
+        Up_Left = 5,
+        Up_Right = 6,
+        Down_Left = 7,
+        Down_Right = 8
     }
     ///// <summary>
     ///// 构造方法

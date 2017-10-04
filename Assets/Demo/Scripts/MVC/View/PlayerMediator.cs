@@ -56,9 +56,4 @@ public class PlayerMediator : FightingBaseMediator {
         GetComponent<Rigidbody>().isKinematic = false;
         base.OnGameRestart();
     }
-
-    void Test()
-    {
-        Debug.Log("测试");
-    }
 }

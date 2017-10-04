@@ -26,6 +26,8 @@ public class OperationMediator : FightingBaseMediator {
     protected override void UpdateListeners(bool enable)
     {
         view.dispatcher.UpdateListener(enable, GameConfig.OperationEvent.CLICK_DOWN, OnOperation);
+        view.dispatcher.UpdateListener(enable, GameConfig.OperationEvent.KEY_DOWN, Move);
+        view.dispatcher.UpdateListener(enable, GameConfig.OperationEvent.KEY_UP, Stop);
         base.UpdateListeners(enable);
     }
 
@@ -43,5 +45,17 @@ public class OperationMediator : FightingBaseMediator {
         dispatcher.Dispatch(GameConfig.CoreEvent.USER_INPUT, data);
     }
 
-    
+    void Move(IEvent e)
+    {
+        CustomEventData data = e as CustomEventData;
+        e.type = GameConfig.CoreEvent.USER_INPUT;
+        dispatcher.Dispatch(GameConfig.CoreEvent.USER_INPUT,data);
+    }
+
+    void Stop(IEvent e)
+    {
+        CustomEventData data = e as CustomEventData;
+        e.type = GameConfig.CoreEvent.USER_INPUT;
+        dispatcher.Dispatch(GameConfig.CoreEvent.USER_INPUT, data);
+    }
 }
