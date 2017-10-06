@@ -8,5 +8,7 @@ public enum ViewEvent  {
    PlayerTurnUp,
    PlayerTurnDown,
    Test,
-   TestDug
+   TestDug,
+   CamClockwise,//镜头顺时针旋转
+   CamCounterClockwise//镜头逆时针旋转
 }
