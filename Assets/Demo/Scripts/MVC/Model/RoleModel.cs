@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoleModel :BaseConfig{
+public class RoleModel {
 
     public int Hp { get; set; }//生命值
     public int Mp { get; set; }//法力值
@@ -16,22 +16,23 @@ public class RoleModel :BaseConfig{
     public int HpRecoveryRate { get; set; }//生命恢复速率
     public int MpRecoveryRate { get; set; }//法力恢复速率
     public List<WeaponModel> Weapon { get; set; } //武器
-    public List<ItemModel> Item { get; set; }//道具
+    public List<ItemModel> ItemID { get; set; }//道具
     public bool IsWeaponForbidden { get; set; }//是否禁用武器
-    public bool IsItemForbodden { get; set; }//是否禁用道具
+    public bool IsItemForbidden { get; set; }//是否禁用道具
     public int AnimationId { get; set; }//角色动画编号
     public Direction RoleDir { get; set; }//角色方向
+    public int ID { get; set; }//角色ID
 
     public enum Direction{
         None = 0,
-        Up = 1,
-        Down = 2,
-        Left = 3,
-        Right = 4,
-        Up_Left = 5,
-        Up_Right = 6,
-        Down_Left = 7,
-        Down_Right = 8
+        North = 1,
+        South = 2,
+        West = 3,
+        East = 4,
+        NorthWest = 5,
+        NprthEast = 6,
+        SouthWset = 7,
+        SouthEast = 8
     }
     ///// <summary>
     ///// 构造方法
@@ -81,4 +82,10 @@ public class RoleModel :BaseConfig{
     //    animationId = this.AnimationId;
     //    //根据动画Id播放动画
     //}
+
+    public override string ToString()
+    {
+        return string.Format("Hp:{0},Mp:{1},MaxHp:{2},MaxMp:{3},Atk:{4},Def:{5},MoveSpeed:{6},AtkSpeed:{7},HpRecoveryRate:{8},MpRecoveryRate:{9},Weapon:{10},ItemID:{11},IsWeaponForbidden:{12},IsItemForbidden:{13},AnimationId:{14},RoleDir:{15},ID:{16}",
+            Hp,Mp,MaxHp,MaxMp,Atk,Def,MoveSpeed,AtkSpeed,HpRecoveryRate,MpRecoveryRate,Weapon,ItemID,IsWeaponForbidden,IsWeaponForbidden,AnimationId,RoleDir,ID);
+    }
 }

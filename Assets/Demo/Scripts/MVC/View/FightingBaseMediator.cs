@@ -14,7 +14,7 @@ public class FightingBaseMediator : Mediator {
     protected virtual void UpdateListeners(bool enable)
     {
         //就是说在继承自它的子类里全都会监听游戏是否开始，是否结束，是否重新开始
-        //dispatcher.UpdateListener(enable, GameConfig.CoreEvent.GAME_START, InitData);
+        dispatcher.UpdateListener(enable, GameConfig.CoreEvent.GAME_START, InitData);
         dispatcher.UpdateListener(enable, GameConfig.CoreEvent.GAME_OVER, OnGameOver);
         dispatcher.AddListener(GameConfig.CoreEvent.GAME_RESTART, OnGameRestart);
     }
