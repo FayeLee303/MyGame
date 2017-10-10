@@ -32,7 +32,7 @@
         [OnValueChanged("RepositionObjects")]
         public int NumberOfObjects = 30;
 
-        [Range(0, 250)]
+        [Range(0, 400)]
         [TabGroup("General")]
         [OnValueChanged("RepositionObjects")]
         public float Radius = 4;

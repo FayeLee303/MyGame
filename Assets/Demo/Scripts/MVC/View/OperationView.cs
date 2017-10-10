@@ -11,6 +11,7 @@ public class OperationView : FightingBaseView {
     public void Update()
     {
         GameUpdate();
+        UIPanelUpdate();
     }
 
     //监听玩家对角色的输入
@@ -47,17 +48,38 @@ public class OperationView : FightingBaseView {
         //被攻击
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("按下鼠标左键");
             CustomOperationEventData data = new CustomOperationEventData
             {
                 type = GameConfig.OperationEvent.BEATTACKED,
                 ismoving = false,
                 OperationEventType = GameConfig.OperationEvent.BEATTACKED
             };
-            Debug.Log("发送BEATTACKED事件");
             dispatcher.Dispatch(GameConfig.OperationEvent.BEATTACKED, data);
-        }
-
-     
+        }     
     }
+
+    //更新UI面板，主要是键盘按键，UIPanle的预制体里自己写了鼠标点击屏幕的事件
+    public void UIPanelUpdate()
+    {
+        //地图面板
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //先检查当前的栈里有没有这个界面
+            if (UIPanelManager.Instance.FindPanle("MiniMapPanel"))
+            {
+                //有就出栈
+                UIPanelManager.Instance.PopPanel();
+                //Debug.Log("出栈");
+            }
+            else if (!UIPanelManager.Instance.FindPanle("MiniMapPanel"))
+            {
+                //没有就入栈
+                //转成枚举类型
+                UIPanelType panelType = (UIPanelType)System.Enum.Parse(typeof(UIPanelType), "MiniMapPanel");
+                UIPanelManager.Instance.PushPanel(panelType); //推送到顶端
+                //Debug.Log("入栈");
+            }
+        }
+    }
+    
 }

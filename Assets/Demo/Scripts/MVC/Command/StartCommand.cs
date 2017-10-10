@@ -32,6 +32,7 @@ public class StartCommand : EventCommand {
 
         DataBaseManager.Instance.Init();//初始化并读取数据
         InventoryManager.Instance.Init();
+       
         UIPanelManager.Instance.Init();
         UIPanelManager.Instance.PushPanel(UIPanelType.MainMenuPanel);
     }

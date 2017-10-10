@@ -56,7 +56,6 @@ public class OperationMediator : FightingBaseMediator {
 
     void BeAttack(IEvent e)
     {
-        Debug.Log("监听到BEATTACKED事件，并发送USER_INPUT事件");
         CustomEventData data = e as CustomEventData;
         e.type = GameConfig.CoreEvent.USER_INPUT;
         dispatcher.Dispatch(GameConfig.CoreEvent.USER_INPUT, data);       

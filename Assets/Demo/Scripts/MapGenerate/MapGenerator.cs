@@ -30,26 +30,26 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
-        //GenerateMap();
+        GenerateMap();
     }
 
     void Update()
     {
         //if (Input.GetMouseButtonDown(0))
         //{
-            //survivingRooms.Clear();
-            //GenerateMap();
-       // }
+        //    survivingRooms.Clear();
+        //    GenerateMap();
+        //}
     }
 
     //生成随机地图。
     public void GenerateMap()
     {
-        map = new int[width, height];
-        RandomFillMap();
+        map = new int[width, height];//新建地图
+        RandomFillMap();//随机填充地图
 
         for (int i = 0; i < smoothLevel; i++)
-            SmoothMap();
+            SmoothMap();  //平滑地图
 
         //清除小洞，小墙，连接房间。
         ProcessMap();
@@ -351,7 +351,7 @@ public class MapGenerator : MonoBehaviour
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1)
-                    map[x, y] = 1;
+                    map[x, y] = 1; //这里是让边缘都是墙
                 else
                     map[x, y] = (pseudoRandom.Next(0, 100) < randomFillPercent) ? 1 : 0;
     }

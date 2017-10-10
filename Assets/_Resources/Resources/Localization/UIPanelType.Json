@@ -22,5 +22,9 @@
   {
     "PanelType": 5,
     "path": "Prefabs/UI/MainMenuPanel"
+  },
+  {
+    "PanelType": 6,
+    "path": "Prefabs/UI/MiniMapPanel"
   }
 ]

@@ -44,8 +44,8 @@ public class PlayerView : FightingBaseView
         hpSlider.fillAmount = DataBaseManager.Instance.FindRole(0).Hp / DataBaseManager.Instance.FindRole(0).MaxHp;
         hpText.text = DataBaseManager.Instance.FindRole(0).Hp.ToString();
         //Debug.Log(hpSlider.fillAmount);
-        Debug.Log(DataBaseManager.Instance.FindRole(0).Hp);
-        Debug.Log(DataBaseManager.Instance.FindRole(0).MaxHp);
+        //Debug.Log(DataBaseManager.Instance.FindRole(0).Hp);
+        //Debug.Log(DataBaseManager.Instance.FindRole(0).MaxHp);
     }
 
 

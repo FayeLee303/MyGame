@@ -177,4 +177,30 @@ public class UIPanelManager
         BasePanel topPanel_2 = panelStack.Peek();
         topPanel_2.OnResume();
     }
+
+    //检查某个面板是否在栈里
+    public bool FindPanle(string panelNameString)
+    {
+        //转成枚举类型
+        UIPanelType panelType = (UIPanelType)System.Enum.Parse(typeof(UIPanelType), "MiniMapPanel");
+        //先检查栈是不是空的
+        if (panelStack == null)
+        {
+            panelStack = new Stack<BasePanel>();
+        }
+        //判断一下栈里是否有页面,如果没有的话直接return
+        if (panelStack.Count <= 0) return false;
+        else
+        {
+            BasePanel panel = GetPanel(panelType);
+            foreach (BasePanel p in panelStack)
+            {
+                if (p.Equals(panel))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 }

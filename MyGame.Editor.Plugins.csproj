@@ -215,6 +215,8 @@
     <Compile Include="Assets\Plugins\DragonBones\DragonBones\unity\Editor\UnityEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Demo\Scripts\Obj\FogOfWar.shader" />
+    <None Include="Assets\Demo\Scripts\Obj\FogOfWarCast.shader" />
     <None Include="Assets\InControl\README\README.txt" />
     <None Include="Assets\LJR\Editor\dotnet2\NPOI.OOXML.XML" />
     <None Include="Assets\LJR\Editor\dotnet2\NPOI.OpenXml4Net.XML" />
