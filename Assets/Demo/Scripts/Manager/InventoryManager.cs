@@ -21,7 +21,6 @@ public class InventoryManager  {
         
     }
 
-
     //私有的构造方法
     private InventoryManager()
     {
@@ -58,6 +57,18 @@ public class InventoryManager  {
             Debug.Log("读取文件失败");
         }
     }
-   
 
+    //根据id从列表里取得物品
+    public ItemModel GetItemById(int id)
+    {
+        foreach (ItemModel item in itemList)
+        {
+            if (item.Id == id)
+            {
+                return item;
+            }
+        }
+
+        return null;
+    }
 }

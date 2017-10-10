@@ -22,9 +22,9 @@ public class StartCommand : EventCommand {
         map.DirArray = new string[4] { "W", "A", "S", "D" };
 
         //生成地图
-        MapGenerator mapGenerator = GameObject.Find("Edge").GetComponent<MapGenerator>();
+       //MapGenerator mapGenerator = GameObject.Find("Edge").GetComponent<MapGenerator>();
         ObjectPlacer objGenerator = GameObject.Find("Element").GetComponent<ObjectPlacer>();
-        mapGenerator.GenerateMap();
+        //mapGenerator.GenerateMap();
         objGenerator.ClearAndRepositionObjects();
 
         //派发游戏开始事件

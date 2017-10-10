@@ -9,6 +9,8 @@ public class MapGenerateManager : MonoBehaviour {
     public int mapSizeZ = 20; //宽
     public GameObject cubePrefab; //地块预制体
     public int updateNum = 5;//优化次数
+    public int Rate = 45;
+    public int cubeSize = 5;
 
 
 	// Use this for initialization
@@ -25,7 +27,7 @@ public class MapGenerateManager : MonoBehaviour {
 	        i++;
 	        if (i >= updateNum) break;
 	    }
-	    InversionMap();
+	   InversionMap();
 
 	}
 	
@@ -41,7 +43,7 @@ public class MapGenerateManager : MonoBehaviour {
         {
             for (int j = 0; j < mapSizeZ; j++)
             {
-                if (Random.Range(0, 100) < 45)
+                if (Random.Range(0, 100) < Rate)
                 {
                     grid[i, j] = 1; //标记有东西
                 }
@@ -52,7 +54,7 @@ public class MapGenerateManager : MonoBehaviour {
                 if (grid[i, j] == 1)
                 {
                     //在标记有的位置上实例化方块
-                    gridObj[i, j] = Instantiate(cubePrefab, transform.position + new Vector3(i, 0, j),
+                    gridObj[i, j] = Instantiate(cubePrefab, transform.position + new Vector3(i, 0, j)*cubeSize,
                         Quaternion.identity);
                     gridObj[i, j].gameObject.transform.SetParent(this.transform);
                 }
@@ -103,7 +105,7 @@ public class MapGenerateManager : MonoBehaviour {
                     grid[i, j] = newGrid[i, j];
                     if (newGrid[i, j] == 1)
                     {
-                        gridObj[i, j] = Instantiate(cubePrefab, transform.position + new Vector3(i, 0, j),
+                        gridObj[i, j] = Instantiate(cubePrefab, transform.position + new Vector3(i, 0, j)*cubeSize,
                             Quaternion.identity);
                         gridObj[i, j].gameObject.transform.SetParent(this.transform);
                     }
@@ -150,7 +152,7 @@ public class MapGenerateManager : MonoBehaviour {
                 }
                 else
                 {
-                    gridObj[i, j] = Instantiate(cubePrefab, transform.position + new Vector3(i, 0, j),
+                    gridObj[i, j] = Instantiate(cubePrefab, transform.position + new Vector3(i, 0, j)*cubeSize,
                         Quaternion.identity);
                     gridObj[i, j].gameObject.transform.SetParent(this.transform);
                 }

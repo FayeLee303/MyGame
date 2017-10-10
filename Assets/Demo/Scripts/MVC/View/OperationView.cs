@@ -80,6 +80,13 @@ public class OperationView : FightingBaseView {
                 //Debug.Log("入栈");
             }
         }
+
+        //道具面板
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            int id = Random.Range(1, 3);
+            ItemPanel.Instance.StoreItem(id);
+        }
     }
     
 }

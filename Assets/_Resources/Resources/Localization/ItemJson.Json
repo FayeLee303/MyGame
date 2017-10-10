@@ -1,16 +1,18 @@
 [
   {
     "Id": 1,
-    "Name": "血瓶",
+    "Name": "苹果",
     "Type": 0,
-    "Description": "回血的",
-    "MaxLimit": 5
+    "Description": "回复5点hp",
+    "MaxLimit": 5,
+    "SpritePath": "Textures/Objs/Item/apple" 
   },
   {
     "Id": 2,
-    "Name": "蓝瓶",
-    "Type": 1,
-    "Description": "回蓝的",
-    "MaxLimit": 5
+    "Name": "火腿",
+    "Type": 0,
+    "Description": "回复10点hp",
+    "MaxLimit": 5,
+    "SpritePath": "Textures/Objs/Item/meat"
   }
 ]

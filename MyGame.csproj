@@ -133,7 +133,6 @@
     <Compile Include="Assets\Demo\Scripts\Manager\DataBaseManager.cs" />
     <Compile Include="Assets\Demo\Scripts\Manager\InventoryManager.cs" />
     <Compile Include="Assets\Demo\Scripts\Manager\MapGenerateManager.cs" />
-    <Compile Include="Assets\Demo\Scripts\Manager\MiniMapManager.cs" />
     <Compile Include="Assets\Demo\Scripts\Manager\UIPanelManager.cs" />
     <Compile Include="Assets\Demo\Scripts\MapGenerate\ControlNode.cs" />
     <Compile Include="Assets\Demo\Scripts\MapGenerate\Coord.cs" />
@@ -172,12 +171,16 @@
     <Compile Include="Assets\Demo\Scripts\MVC\View\PlayerMediator.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\PlayerView.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\BasePanel.cs" />
-    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\ItemPanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\Inventory.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ItemObj.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ItemPanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ItemSlot.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\MainMenuPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\MiniMapPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\NormalMenuPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\OptionPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\RolePanel.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\ToolTip.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\WeaponPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\ViewEvent.cs" />
     <Compile Include="Assets\Demo\Scripts\Obj\FogOfWar3D.cs" />

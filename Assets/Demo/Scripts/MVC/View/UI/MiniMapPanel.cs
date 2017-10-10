@@ -9,7 +9,6 @@ public class MiniMapPanel : BasePanel
     private CanvasGroup canvasGroup;
 
     private Camera mapCam;//拍小地图的摄像机
-    private RenderTexture renderTexture;//摄像机的渲染纹理
     private Texture2D mapTex;//摄像机的渲染纹理转成的Texture2D形式
     //private string filePath; //存临时地图的路径
     private Image mapImg;
@@ -23,7 +22,6 @@ public class MiniMapPanel : BasePanel
         canvasGroup = this.GetComponent<CanvasGroup>();
         //初始化
         mapCam = GameObject.Find("MapCam").GetComponent<Camera>();
-        this.renderTexture = mapCam.activeTexture;
         this.mapImg = GameObject.Find("MiniMap").GetComponent<Image>();
     }
 
