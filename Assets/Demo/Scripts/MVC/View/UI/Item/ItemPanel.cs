@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemPanel : Inventory {
 
@@ -15,5 +16,8 @@ public class ItemPanel : Inventory {
             return _instance;
         }
     }
-#endregion
+    #endregion
+
+
+   
 }

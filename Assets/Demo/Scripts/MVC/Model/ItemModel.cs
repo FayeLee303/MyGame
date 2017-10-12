@@ -22,4 +22,10 @@ public class ItemModel
     {
         return string.Format("Id: {0}, Name: {1}, Type:{2}, Description: {3}, MaxLimit: {4}, SpritePath: {5}", Id, Name,Type, Description, MaxLimit, SpritePath);
     }
+
+    //得到显示面板应该显示的内容
+    public virtual string GetToolTipText()
+    {
+        return Name;//TODO
+    }
 }

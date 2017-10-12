@@ -24,16 +24,19 @@ public class InventoryManager  {
     //私有的构造方法
     private InventoryManager()
     {
-        ParseItemJson();
+        ParseItemJson();      
     }
 
     public void Init()
     {
-       //Do Nothing
+        toolTip = GameObject.Find("ToolTip").GetComponent<ToolTip>();
     }
 
     public List<ItemModel> itemList;
-    //private string itemJsonPath = Application.dataPath+"Resources/Localization/ItemJson";
+
+    public ToolTip toolTip;
+    public bool isToolTipShow = false;
+
     /// <summary>
     /// 解析物品信息
     /// </summary>
@@ -70,5 +73,18 @@ public class InventoryManager  {
         }
 
         return null;
+    }
+
+  
+    public void ShowToolTip(string content)
+    {
+        isToolTipShow = true;
+        toolTip.ShowToolTip(content);
+    }
+
+    public void HideToolTip()
+    {
+        isToolTipShow = false;
+        toolTip.HideToolTip();
     }
 }

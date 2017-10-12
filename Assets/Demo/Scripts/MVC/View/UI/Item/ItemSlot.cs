@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// 物品槽
 /// </summary>
-public class ItemSlot : MonoBehaviour {
+public class ItemSlot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler {
 
     public GameObject itemPrefab;
+    
+
     //把item放在自身下面，如果已经有了就让数量增加
     public void StoreItem(ItemModel item)
     {
@@ -36,5 +39,25 @@ public class ItemSlot : MonoBehaviour {
     {
         ItemObj itemObj = transform.GetChild(0).GetComponent<ItemObj>();
         return itemObj.Item.MaxLimit <= itemObj.Amount;
+    }
+
+    //重写Unity自带的事件触发函数
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (transform.childCount > 0)
+        {
+            string text = transform.GetChild(0).GetComponent<ItemObj>().Item.GetToolTipText();
+            InventoryManager.Instance.ShowToolTip(text); //要传递数据
+            
+        }
+       
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (transform.childCount > 0)
+        {          
+            InventoryManager.Instance.HideToolTip();
+        }
     }
 }

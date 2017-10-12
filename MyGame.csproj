@@ -175,12 +175,12 @@
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ItemObj.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ItemPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ItemSlot.cs" />
+    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\Item\ToolTip.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\MainMenuPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\MiniMapPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\NormalMenuPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\OptionPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\RolePanel.cs" />
-    <Compile Include="Assets\Demo\Scripts\MVC\View\UI\ToolTip.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\UI\WeaponPanel.cs" />
     <Compile Include="Assets\Demo\Scripts\MVC\View\ViewEvent.cs" />
     <Compile Include="Assets\Demo\Scripts\Obj\FogOfWar3D.cs" />
