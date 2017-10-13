@@ -24,20 +24,20 @@ public class ItemSlot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler {
         }
         else
         {
-            transform.GetChild(0).GetComponent<ItemObj>().AddAmount(1);
+            transform.Find("ItemObj(Clone)").GetComponent<ItemObj>().AddAmount(1);
         }
     }
 
     //返回当前物品槽储存的物品ID
     public int GetItemId()
     {
-        return transform.GetChild(0).GetComponent<ItemObj>().Item.Id;
+        return transform.Find("ItemObj(Clone)").GetComponent<ItemObj>().Item.Id;
     }
 
     //如果True就是当前格子已经装满某物品了
     public bool IsFilled()
     {
-        ItemObj itemObj = transform.GetChild(0).GetComponent<ItemObj>();
+        ItemObj itemObj = transform.Find("ItemObj(Clone)").GetComponent<ItemObj>();
         return itemObj.Item.MaxLimit <= itemObj.Amount;
     }
 
@@ -46,7 +46,7 @@ public class ItemSlot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler {
     {
         if (transform.childCount > 0)
         {
-            string text = transform.GetChild(0).GetComponent<ItemObj>().Item.GetToolTipText();
+            string text = transform.Find("ItemObj(Clone)").GetComponent<ItemObj>().Item.GetToolTipText();
             InventoryManager.Instance.ShowToolTip(text); //要传递数据
             
         }

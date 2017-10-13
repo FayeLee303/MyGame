@@ -28,6 +28,19 @@ public class ItemModel
     //得到显示面板应该显示的内容
     public virtual string GetToolTipText()
     {
-        return Name;//TODO
+        string color = "";
+        switch (Type)
+        {
+            case ItemType.Consumable:
+                color = "red";
+                break;
+            case ItemType.Active:
+                color = "blue";
+                break;
+        }
+        string text = string.Format("<size=16>{0}</size>\n<color={5}>{1}</color>\n<color=yellow>描述：{2}</color>\n<color=green>购买价格：{3} 出售价格：{4}</color>", Name, Type.ToString(), Description, BuyPrice,
+            SellPrice,color);
+        
+        return text;
     }
 }

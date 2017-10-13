@@ -31,17 +31,22 @@ public class WeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //返回当前武器槽储存的武器ID
     public int GetWeaponId()
     {
-        return transform.GetChild(0).GetComponent<WeaponObj>().Weapon.Id;
+        return transform.Find("WeaponObj(Clone)").GetComponent<WeaponObj>().Weapon.Id;
     }
 
     //如果True就是这个武器槽装备了武器
     //要在其他地方判断两个武器槽都装备了武器
     public bool IsFilled()
     {
-        WeaponObj weaponObj = transform.GetChild(0).GetComponent<WeaponObj>();
-        if (weaponObj != null)
-        { return true;}
-        else return false;
+        //transform.Find来找到Child，不用GetChild(index)
+        if (transform.Find("WeaponObj(Clone)") == null || transform.Find("WeaponObj(Clone)").GetComponent<WeaponObj>() == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     //重写Unity自带的事件触发函数
@@ -49,7 +54,7 @@ public class WeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (transform.childCount > 0)
         {
-            string text = transform.GetChild(0).GetComponent<WeaponObj>().Weapon.GetToolTipText();
+            string text = transform.Find("WeaponObj(Clone)").GetComponent<WeaponObj>().Weapon.GetToolTipText();
             InventoryManager.Instance.ShowToolTip(text); //要传递数据
 
         }

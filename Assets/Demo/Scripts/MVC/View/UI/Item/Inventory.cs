@@ -113,18 +113,29 @@ public class Inventory : MonoBehaviour {
         {
             Debug.LogWarning("要存的东西不存在");
             return false;
-        }
-        //找一个新格子存
-        WeaponSlot _slot = FindEmptyWeaponSlot();
-        if (_slot == null)
+        }else
         {
-            Debug.LogWarning("格子已经满了");
-            return false;
-        }
-        else
-        {
-            _slot.StoreWeapon(weapon); //把物品存进去
-        }
+            //先看当前是否已经装备了相同类型的武器，如果是就debug，如果不是再找空格子
+            if (FindSameTypeSlot(weapon))
+            {
+                Debug.Log("想装备的武器类型重复");
+                return false;
+            }
+            else
+            {
+                //找一个新格子存
+                WeaponSlot _slot = FindEmptyWeaponSlot();
+                if (_slot == null)
+                {
+                    Debug.LogWarning("格子已经满了");
+                    return false;
+                }
+                else
+                {
+                    _slot.StoreWeapon(weapon); //把物品存进去
+                }
+            }
+        }      
         return true;
     }
 
@@ -141,6 +152,32 @@ public class Inventory : MonoBehaviour {
         return null;
     }
 
+    //看当前是否已经装备了相同类型的武器子
+    private bool FindSameTypeSlot(WeaponModel weapon)
+    {
+        foreach (WeaponSlot weaponSlot in weaponSlotList)
+        {
+            //当格子不为空
+            if (weaponSlot.IsFilled())
+            {
+                //格子装的武器的类型是否和当前要存的武器类型一样
+                if (weaponSlot.transform.Find("WeaponObj(Clone)").transform.GetComponent<WeaponObj>().Weapon.Type ==
+                    weapon.Type)
+                {
+                    return true; //已经有了
+                }
+                else
+                {
+                    return false; //还没有
+                }
+            }
+            else
+            {
+                return false; //还没有
+            }
+        }
+        return false;
+    }
     #endregion
 
 }
