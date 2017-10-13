@@ -10,6 +10,8 @@ public class ItemModel
     public ItemType Type { get; set; }
     public string Description { get; set; }
     public int MaxLimit { get; set; }
+    public int BuyPrice { get; set; }//买入价格
+    public int SellPrice { get; set; }//卖出价格
     public string SpritePath { get; set; } //图片路径
 
     public enum ItemType

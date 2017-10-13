@@ -8,7 +8,7 @@ public class ToolTip : MonoBehaviour {
     private Text toolTipText; //这个文字主要是用大小改变面板大小
     private Text contentText; //这个文字用来显示，这两个文字要一样
     private CanvasGroup canvasGroup;
-    private float targetAlpha = 1;
+    private float targetAlpha = 0;
     public float smoothingTime = 5;
 
     //提示板

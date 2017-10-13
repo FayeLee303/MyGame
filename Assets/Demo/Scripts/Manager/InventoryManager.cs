@@ -24,7 +24,8 @@ public class InventoryManager  {
     //私有的构造方法
     private InventoryManager()
     {
-        ParseItemJson();      
+        ParseItemJson();
+        ParseWeaponJson();
     }
 
     public void Init()
@@ -33,6 +34,7 @@ public class InventoryManager  {
     }
 
     public List<ItemModel> itemList;
+    public List<WeaponModel> weaponList;
 
     public ToolTip toolTip;
     public bool isToolTipShow = false;
@@ -60,6 +62,25 @@ public class InventoryManager  {
             Debug.Log("读取文件失败");
         }
     }
+    /// <summary>
+    /// 解析武器信息
+    /// </summary>
+    private void ParseWeaponJson()
+    {
+        //文本在Unity里面是TextAsset类型
+        TextAsset weaponJsonText = Resources.Load<TextAsset>("Localization/WeaponJson");
+        if (weaponJsonText != null)
+        {
+            string weaponJsonString = weaponJsonText.text;
+            //Debug.Log(weaponJsonString);
+            weaponList = JsonMapper.ToObject<List<WeaponModel>>(weaponJsonString);
+            //if (weaponList == null) Debug.Log("读取文件失败");
+        }
+        else
+        {
+            Debug.Log("读取文件失败");
+        }
+    }
 
     //根据id从列表里取得物品
     public ItemModel GetItemById(int id)
@@ -75,7 +96,20 @@ public class InventoryManager  {
         return null;
     }
 
-  
+    //根据id从列表里取武器
+    public WeaponModel GetWeaponById(int id)
+    {
+        foreach (WeaponModel weapon in weaponList)
+        {
+            if (weapon.Id == id)
+            {
+                return weapon;
+            }
+        }
+
+        return null;
+    }
+
     public void ShowToolTip(string content)
     {
         isToolTipShow = true;

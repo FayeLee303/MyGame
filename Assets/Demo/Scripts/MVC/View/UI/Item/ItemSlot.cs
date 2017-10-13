@@ -28,10 +28,10 @@ public class ItemSlot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler {
         }
     }
 
-    //返回当前物品槽储存的物品的类型
-    public ItemModel.ItemType GetItemType()
+    //返回当前物品槽储存的物品ID
+    public int GetItemId()
     {
-        return transform.GetChild(0).GetComponent<ItemObj>().Item.Type;
+        return transform.GetChild(0).GetComponent<ItemObj>().Item.Id;
     }
 
     //如果True就是当前格子已经装满某物品了

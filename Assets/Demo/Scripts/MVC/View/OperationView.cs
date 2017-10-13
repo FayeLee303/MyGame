@@ -87,6 +87,12 @@ public class OperationView : FightingBaseView {
             int id = Random.Range(1, 3);
             ItemPanel.Instance.StoreItem(id);
         }
+        //武器面板
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            int id = Random.Range(1, 4);
+            WeaponPanel.Instance.StoreWeapon(id);
+        }
     }
     
 }
