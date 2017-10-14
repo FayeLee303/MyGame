@@ -115,36 +115,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\LJR\Editor\dotnet2\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI">
-      <HintPath>Assets\LJR\Editor\dotnet2\NPOI.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OOXML">
-      <HintPath>Assets\LJR\Editor\dotnet2\NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>Assets\LJR\Editor\dotnet2\NPOI.OpenXml4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>Assets\LJR\Editor\dotnet2\NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
-    <Reference Include="LitJson">
-      <HintPath>Assets\LJR\Plugins\LitJson.dll</HintPath>
-    </Reference>
-    <Reference Include="ConditionalExpression">
-      <HintPath>Assets\PlayMaker\ConditionalExpression.dll</HintPath>
-    </Reference>
-    <Reference Include="ConditionalExpressionEditor">
-      <HintPath>Assets\PlayMaker\Editor\ConditionalExpressionEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="PlayMakerEditor">
-      <HintPath>Assets\PlayMaker\Editor\PlayMakerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="PlayMakerEditorResources">
-      <HintPath>Assets\PlayMaker\Editor\PlayMakerEditorResources.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
@@ -172,9 +142,6 @@
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
     </Reference>
-    <Reference Include="PlayMaker">
-      <HintPath>Assets\Plugins\PlayMaker\PlayMaker.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
@@ -196,6 +163,24 @@
     <Reference Include="GeneratedOdinEditors">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Editor\GeneratedOdinEditors.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>Assets\Plugins\LJR\Editor\dotnet2\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>Assets\Plugins\LJR\Editor\dotnet2\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Plugins\LJR\Editor\dotnet2\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>Assets\Plugins\LJR\Editor\dotnet2\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>Assets\Plugins\LJR\Plugins\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>Assets\Plugins\LJR\Editor\dotnet2\NPOI.OOXML.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MyGame.csproj">
@@ -213,21 +198,12 @@
     <Compile Include="Assets\Plugins\DragonBones\DragonBones\unity\Editor\DragonBonesIcons.cs" />
     <Compile Include="Assets\Plugins\DragonBones\DragonBones\unity\Editor\UnityArmatureEditor.cs" />
     <Compile Include="Assets\Plugins\DragonBones\DragonBones\unity\Editor\UnityEditor.cs" />
+    <Compile Include="Assets\Plugins\LJR\Editor\HttpCreater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Demo\Scripts\Obj\FogOfWar.shader" />
     <None Include="Assets\Demo\Scripts\Obj\FogOfWarCast.shader" />
     <None Include="Assets\InControl\README\README.txt" />
-    <None Include="Assets\LJR\Editor\dotnet2\NPOI.OOXML.XML" />
-    <None Include="Assets\LJR\Editor\dotnet2\NPOI.OpenXml4Net.XML" />
-    <None Include="Assets\LJR\Editor\dotnet2\NPOI.XML" />
-    <None Include="Assets\LJR\readme_en.txt" />
-    <None Include="Assets\LJR\readme_jp.txt" />
-    <None Include="Assets\PlayMaker\Editor\Install\readme.txt" />
-    <None Include="Assets\PlayMaker\Readme.txt" />
-    <None Include="Assets\PlayMaker\Resources\PlayMakerAssemblies.txt" />
-    <None Include="Assets\PlayMaker\Templates\readme.txt" />
-    <None Include="Assets\PlayMaker\Versions\readme.txt" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween46.xml" />
@@ -240,6 +216,11 @@
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\Editor\DemiEditor.xml" />
     <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\Plugins\LJR\Editor\dotnet2\NPOI.OOXML.XML" />
+    <None Include="Assets\Plugins\LJR\Editor\dotnet2\NPOI.OpenXml4Net.XML" />
+    <None Include="Assets\Plugins\LJR\Editor\dotnet2\NPOI.XML" />
+    <None Include="Assets\Plugins\LJR\readme_en.txt" />
+    <None Include="Assets\Plugins\LJR\readme_jp.txt" />
     <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
     <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.xml" />
     <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />
@@ -250,7 +231,6 @@
     <None Include="Assets\Plugins\Sirenix\Readme.txt" />
     <None Include="Assets\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />
     <None Include="Assets\_Resources\Resources\Shaders\LightTestShader.shader" />
-    <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

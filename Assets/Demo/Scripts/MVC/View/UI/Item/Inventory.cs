@@ -98,7 +98,7 @@ public class Inventory : MonoBehaviour {
     }
     #endregion
 
-    #region Weapon
+#region Weapon
     //根据ID存东西，如果存成功就返回true
     public bool StoreWeapon(int id)
     {

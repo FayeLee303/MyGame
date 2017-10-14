@@ -18,6 +18,7 @@ public class LookAtCamera : MonoBehaviour
 	void Update ()
 	{
 	    this.transform.rotation = Quaternion.Slerp(this.transform.rotation,cam.transform.rotation,0.1f*Time.time);
+        //if(Mathf.Abs(transform.rotation-cam.transform.rotation)<)
 
 	}
 }

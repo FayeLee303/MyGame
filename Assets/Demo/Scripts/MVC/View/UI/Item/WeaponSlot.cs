@@ -52,7 +52,7 @@ public class WeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //重写Unity自带的事件触发函数
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (transform.childCount > 0)
+        if (transform.childCount > 0 )
         {
             string text = transform.Find("WeaponObj(Clone)").GetComponent<WeaponObj>().Weapon.GetToolTipText();
             InventoryManager.Instance.ShowToolTip(text); //要传递数据

@@ -50,7 +50,7 @@ public class MiniMapPanel : BasePanel
         canvasGroup.blocksRaycasts = false;
         //表示动画播放完之后调用的语句
         transform.DOLocalMoveX(1000, 0.5f).OnComplete(() => canvasGroup.alpha = 0);
-        ;
+
     }
     //恢复交互
     public override void OnResume()

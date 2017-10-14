@@ -42,8 +42,6 @@ public class ToolTip : MonoBehaviour {
 
         }
 
-        //要一直把ToolTip放在画布的最上层
-        InventoryManager.Instance.toolTip.transform.SetAsLastSibling();
     }
 
     public void ShowToolTip(string text)
